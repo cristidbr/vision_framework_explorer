@@ -12,19 +12,17 @@ import Foundation
     import AppKit
 #endif
 
-//TODO: Remove white space and ";"
-func openURLInBrowser(_ urlString: String)
-{
-    guard let url = URL( string: urlString ) else
-    {
-        return ;
+func openURLInBrowser(_ urlString: String) {
+    guard let url = URL(string: urlString) else {
+        return
     }
-    
+
     #if canImport(UIKit)
-        let viewController = SFSafariViewController( url: url );
-        
-        UIApplication.shared.windows.first?.rootViewController?.present( viewController, animated: true, completion: nil );
+        let viewController = SFSafariViewController(url: url)
+
+        UIApplication.shared.windows.first?.rootViewController?.present(
+        viewController, animated: true, completion: nil)
     #elseif canImport(AppKit)
-        NSWorkspace.shared.open( url )
+        NSWorkspace.shared.open(url)
     #endif
 }

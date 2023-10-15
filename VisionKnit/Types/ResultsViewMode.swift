@@ -5,12 +5,10 @@
 
 import Foundation
 
-enum ResultsViewMode : Hashable
-{
-    case overlay, trailing, split, bottom;
-    
-    func next( ) -> ResultsViewMode
-    {
+enum ResultsViewMode: Hashable {
+    case overlay, trailing, split, bottom
+
+    func next() -> ResultsViewMode {
         switch self
         {
         case .overlay:
@@ -24,4 +22,3 @@ enum ResultsViewMode : Hashable
         }
     }
 }
-

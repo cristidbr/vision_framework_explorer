@@ -4,60 +4,62 @@
 //
 
 import SwiftUI
-// TODO: it should be moved to a separate file
-// TODO: Remove white space, ";
-struct MediaSizingPreferenceKey: PreferenceKey
-{
-    typealias Value = CGSize;
-    static var defaultValue: Value = .zero;
-    
-    static func reduce(
-        value: inout Value,
-        nextValue: () -> Value
-    ) {
-        value = nextValue()
-    }
-}
 
-// TODO: Remove white space, ";" 
-struct MediaView: View
-{
-    @Environment( \.colorScheme ) var colorScheme
-    
-    let sample: ImageSampleReference;
-    
-    var body: some View
-    {
-        let samplePath = ( sample.darkVersion && colorScheme == .dark ) ?
-            "\( sample.path )-dark" :
-            sample.path;
-        
-        Image( samplePath )
-            .antialiased( true )
+struct MediaView: View {
+    @EnvironmentObject var properties: VisionPreviewProperties
+
+    @Environment(\.colorScheme) var colorScheme
+
+    @ViewBuilder private func renderSample() -> Image {
+        let sample = getSelectedImageSampleByMethod(
+            properties.selectedMethod, selected: properties.selectedSample)
+        let samplePath =
+            (sample.darkVersion && colorScheme == .dark) ? "\( sample.path )-dark" : sample.path
+
+        Image(samplePath)
+    }
+
+    private func renderUpload() -> Image {
+        let sample = getSelectedImageUserUploaded(
+            uploads: properties.userUploads, selected: properties.selectedSample)
+
+        if sample == nil {
+            return Image(systemName: "camera.metering.unknown")
+        }
+
+        let imsize = NSSize(width: sample!.image.width, height: sample!.image.height)
+        let nsimage = NSImage(cgImage: sample!.image, size: imsize)
+
+        return Image(nsImage: nsimage)
+    }
+
+    var body: some View {
+        let data =
+            isUserUploadedImage(uploads: properties.userUploads, selected: properties.selectedSample)
+            ? renderUpload() : renderSample()
+
+        data
+            .antialiased(true)
             .resizable()
             .scaledToFit()
-            .cornerRadius( 4 )
-            .aspectRatio( contentMode: .fit )
-            .background
-            {
-                GeometryReader
-                {
-                    geometry in
-                        Rectangle()
-                            .fill( Color.clear )
-                            .preference(
-                                key: MediaSizingPreferenceKey.self,
-                                value: geometry.size
-                            )
+            .cornerRadius(4)
+            .aspectRatio(contentMode: .fit)
+            .background {
+                GeometryReader {
+                geometry in
+                Rectangle()
+                    .fill(Color.clear)
+                    .preference(
+                        key: MediaSizingPreferenceKey.self,
+                        value: geometry.size
+                    )
                 }
             }
     }
 }
 
-struct MediaView_Previews: PreviewProvider
-{
-    static var previews: some View
-    {
-        MediaView( sample: VisionAPIDescription[ 0 ].samples[ 0 ] )
+struct MediaView_Previews: PreviewProvider {
+    static var previews: some View {
+        EmptyView()
     }
 }

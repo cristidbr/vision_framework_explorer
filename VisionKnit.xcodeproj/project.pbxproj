@@ -16,6 +16,7 @@
 		4E26E7D82A1BEFED00839350 /* VisionPreviewProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E26E7D72A1BEFED00839350 /* VisionPreviewProperties.swift */; };
 		4E38F03A2ADBE0BF00A779E1 /* CodeReferenceListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E38F0392ADBE0BF00A779E1 /* CodeReferenceListView.swift */; };
 		4E38F03C2ADBF01700A779E1 /* BindingUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E38F03B2ADBF01700A779E1 /* BindingUtils.swift */; };
+		4E4955E52AEEF0D1005AD9AD /* DropTargetOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E4955E42AEEF0D1005AD9AD /* DropTargetOverlayView.swift */; };
 		4E4DB7C52A1777710028F266 /* RecognizedRectangleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E4DB7C42A1777710028F266 /* RecognizedRectangleView.swift */; };
 		4E59EE452A1A586B00A5D9BF /* ResultsViewMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E59EE442A1A586B00A5D9BF /* ResultsViewMode.swift */; };
 		4E59EE472A1A648C00A5D9BF /* URLUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E59EE462A1A648C00A5D9BF /* URLUtils.swift */; };
@@ -90,6 +91,7 @@
 		4E26E7D72A1BEFED00839350 /* VisionPreviewProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionPreviewProperties.swift; sourceTree = "<group>"; };
 		4E38F0392ADBE0BF00A779E1 /* CodeReferenceListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeReferenceListView.swift; sourceTree = "<group>"; };
 		4E38F03B2ADBF01700A779E1 /* BindingUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BindingUtils.swift; sourceTree = "<group>"; };
+		4E4955E42AEEF0D1005AD9AD /* DropTargetOverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropTargetOverlayView.swift; sourceTree = "<group>"; };
 		4E4DB7C42A1777710028F266 /* RecognizedRectangleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecognizedRectangleView.swift; sourceTree = "<group>"; };
 		4E59EE442A1A586B00A5D9BF /* ResultsViewMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewMode.swift; sourceTree = "<group>"; };
 		4E59EE462A1A648C00A5D9BF /* URLUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLUtils.swift; sourceTree = "<group>"; };
@@ -280,6 +282,7 @@
 				4EE6E6B42ADAC7F70086F741 /* GalleryThumbnailView.swift */,
 				4EE6E6B62ADACE880086F741 /* AddPhotosView.swift */,
 				4E15AE862A274A39001BA588 /* ImageCreditView.swift */,
+				4E4955E42AEEF0D1005AD9AD /* DropTargetOverlayView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -455,6 +458,7 @@
 				4E069A7C2A2CA6500074E2AB /* FeaturePrintView.swift in Sources */,
 				4E03BC142A1FF9C200B0A007 /* RecognizedTextCharactersView.swift in Sources */,
 				4ED937232A141FDB00093693 /* MediaView.swift in Sources */,
+				4E4955E52AEEF0D1005AD9AD /* DropTargetOverlayView.swift in Sources */,
 				4EE962FA2A19063D004872DC /* ImageSampleReference.swift in Sources */,
 				4E6FE1A22A27DC32001CEA0A /* HorizonLineView.swift in Sources */,
 				4ED937152A14119600093693 /* MainNavigationView.swift in Sources */,
@@ -647,7 +651,7 @@
 				CODE_SIGN_ENTITLEMENTS = VisionKnit/VisionKnit.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"VisionKnit/Preview Content\"";
 				DEVELOPMENT_TEAM = AFZG9MN5TJ;
@@ -666,19 +670,21 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 1.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = ai.quarters.visionknit;
 				PRODUCT_NAME = "Vision Explorer";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = macosx;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TVOS_DEPLOYMENT_TARGET = 16.0;
 			};
 			name = Debug;
 		};
@@ -691,7 +697,7 @@
 				CODE_SIGN_ENTITLEMENTS = VisionKnit/VisionKnit.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"VisionKnit/Preview Content\"";
 				DEVELOPMENT_TEAM = AFZG9MN5TJ;
@@ -710,19 +716,21 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 1.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = ai.quarters.visionknit;
 				PRODUCT_NAME = "Vision Explorer";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = macosx;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TVOS_DEPLOYMENT_TARGET = 16.0;
 			};
 			name = Release;
 		};

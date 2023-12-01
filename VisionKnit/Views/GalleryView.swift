@@ -14,45 +14,63 @@ struct GalleryView: View {
             properties.selectedMethod, uploads: properties.userUploads,
             selected: properties.selectedSample)
         let glayout: [GridItem] = Array(repeating: .init(.adaptive(minimum: 120)), count: 1)
-
+        
         ScrollView(.horizontal, showsIndicators: true) {
             VStack {
                 LazyHGrid(rows: glayout, alignment: .center, spacing: 4) {
-                    if method.path != "core-ml-unsupported" {
+                    let method_path = method?.path ?? ""
+                    
+                    if method_path != "core-ml-unsupported" {
+                        #if os(macOS)
                         AddPhotosView()
-
-                        ForEach(properties.userUploads) {
-                            item in
-
-                            GalleryThumbnailView(uploaded: item, selected: sample_id == item.id) {
-                                id in
-
-                                properties.userUploads = properties.userUploads.filter { $0.id != id }
-
-                                if properties.userUploads.count > 0 {
-                                properties.selectedSample = properties.userUploads[0].id
-                                }
-                            }
-                            .onTapGesture {
-                                properties.selectedSample = item.id
+                        #elseif os(iOS)
+                        if UIDevice.current.userInterfaceIdiom == .pad {
+                            if method != nil {
+                                AddPhotosView()
                             }
                         }
-                    }
-
-                    ForEach(method.samples) {
-                        item in
-
-                        GalleryThumbnailView(sample: item, selected: sample_id == item.id)
-                            .onTapGesture {
+                        #endif
+                        
+                        ForEach(properties.userUploads) {
+                            item in
+                            
+                            Button
+                            {
                                 properties.selectedSample = item.id
+                            } label: {
+                                GalleryThumbnailView(uploaded: item, selected: sample_id == item.id) {
+                                    id in
+                                    
+                                    properties.userUploads = properties.userUploads.filter { $0.id != id }
+                                    
+                                    if properties.userUploads.count > 0 {
+                                        properties.selectedSample = properties.userUploads[0].id
+                                    }
+                                }
                             }
+                            .buttonStyle(.plain)
+                            .padding(.all, 0)
+                        }
+                    }
+                    
+                    ForEach(method?.samples ?? []) {
+                        item in
+                        
+                        Button
+                        {
+                            properties.selectedSample = item.id
+                        } label: {
+                            GalleryThumbnailView(sample: item, selected: sample_id == item.id)
+                        }
+                        .buttonStyle(.plain)
+                        .padding( .all, 0 )
                     }
                 }
             }
-            .padding(6)
+            .padding(8)
             .frame(maxHeight: 120)
         }
-        .preference(key: ResultsModePreferenceKey.self, value: method.preview)
+        .preference(key: ResultsModePreferenceKey.self, value: method?.preview ?? .overlay)
     }
 }
 

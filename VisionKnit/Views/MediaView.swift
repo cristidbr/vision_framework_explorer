@@ -10,33 +10,42 @@ struct MediaView: View {
 
     @Environment(\.colorScheme) var colorScheme
 
-    @ViewBuilder private func renderSample() -> Image {
+    private func renderSample() -> Image {
         let sample = getSelectedImageSampleByMethod(
             properties.selectedMethod, selected: properties.selectedSample)
+        
+        if sample == nil {
+            return Image(systemName: "camera.metering.unknown")
+        }
+        
         let samplePath =
-            (sample.darkVersion && colorScheme == .dark) ? "\( sample.path )-dark" : sample.path
-
-        Image(samplePath)
+            (sample!.darkVersion && colorScheme == .dark) ? "\( sample!.path )-dark" : sample!.path
+        
+        return Image(samplePath)
     }
 
     private func renderUpload() -> Image {
         let sample = getSelectedImageUserUploaded(
-            uploads: properties.userUploads, selected: properties.selectedSample)
+            uploads: properties.userUploads, selected: properties.selectedSample!)
 
         if sample == nil {
             return Image(systemName: "camera.metering.unknown")
         }
-
+        
+        #if os(macOS)
         let imsize = NSSize(width: sample!.image.width, height: sample!.image.height)
         let nsimage = NSImage(cgImage: sample!.image, size: imsize)
 
         return Image(nsImage: nsimage)
+        #elseif os(iOS) || os(tvOS)
+        return Image(uiImage: UIImage(cgImage: sample!.image))
+        #endif
     }
 
     var body: some View {
         let data =
             isUserUploadedImage(uploads: properties.userUploads, selected: properties.selectedSample)
-            ? renderUpload() : renderSample()
+                ? renderUpload() : renderSample()
 
         data
             .antialiased(true)

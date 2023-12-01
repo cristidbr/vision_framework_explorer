@@ -12,6 +12,9 @@ struct ResultsView<Media, Results>: View where Media: View, Results: View {
     public let results: Results
 
     @State private var mediaSize: CGSize = .zero
+    
+    @GestureState private var sscale: CGFloat = 1.0
+    @GestureState private var oscale: CGFloat = 1.0
 
     public init(
         viewMode: ResultsViewMode, @ViewBuilder media: () -> Media, @ViewBuilder results: () -> Results
@@ -36,6 +39,7 @@ struct ResultsView<Media, Results>: View where Media: View, Results: View {
                 self.makeSplit()
             }
         }
+        .clipped()
     }
 
     @ViewBuilder private func makeMedia() -> some View {
@@ -44,11 +48,23 @@ struct ResultsView<Media, Results>: View where Media: View, Results: View {
                 mediaSize = $0
             }
     }
+    
+    private func getTrailingViewSize() -> CGFloat
+    {
+        #if os(iOS)
+        if UIDevice.current.userInterfaceIdiom != .pad
+        {
+            return 150
+        }
+        #endif
+        
+        return 180
+    }
 
     @ViewBuilder private func makeResults() -> some View {
         if viewMode == .trailing {
             results
-                .frame(maxWidth: 180)
+                .frame(maxWidth: getTrailingViewSize())
         } else if viewMode == .bottom {
             results
                 .frame(maxHeight: 180)
@@ -62,6 +78,7 @@ struct ResultsView<Media, Results>: View where Media: View, Results: View {
                         }
                         .frame(width: mediaSize.width, height: mediaSize.height)
                         .clipped()
+                        .scaleEffect(sscale, anchor: (viewMode == .split) ? .trailing : .center)
                 }
         }
     }
@@ -74,6 +91,14 @@ struct ResultsView<Media, Results>: View where Media: View, Results: View {
             .clipped()
             .padding(.all, 8)
             .frame(maxHeight: .greatestFiniteMagnitude)
+            .scaleEffect(oscale, anchor: .center)
+            .gesture(
+                MagnificationGesture()
+                    .updating($oscale) {
+                        (newValue, scale, _) in
+                        scale = min( max( newValue, 1.0 ), 3.0 )
+                    }
+            )
     }
 
     @ViewBuilder private func makeSplit() -> some View {
@@ -89,6 +114,12 @@ struct ResultsView<Media, Results>: View where Media: View, Results: View {
 
                 makeResults()
                     .frame(maxWidth: geometry.size.width / 2)
+                    .gesture(
+                        MagnificationGesture().updating($sscale) {
+                            (newValue, scale, _) in
+                            scale = min( max( newValue, 1.0 ), 3.0 )
+                        }
+                    )
             }
         }
     }

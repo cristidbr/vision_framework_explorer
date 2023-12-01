@@ -75,7 +75,11 @@ func makeVisionRequest(path: String) -> VNImageBasedRequest {
     default:
         task = VNImageBasedRequest()
     }
-
+    
+    #if DEBUG
+    task.usesCPUOnly = true
+    #endif
+    
     return task
 }
 
@@ -84,7 +88,7 @@ func executeVisionRequest(
 ) {
     Task(priority: .userInitiated) {
         let rhandle = VNImageRequestHandler(cgImage: cgImage)
-
+        
         do {
             try rhandle.perform([request])
         } catch {
@@ -98,30 +102,48 @@ func executeVisionRequest(
 }
 
 func loadCGImage(_ path: String) -> CGImage {
-    #if canImport(AppKit)
-        let nsimage = NSImage(named: path)
-        var area = NSRect(x: 0, y: 0, width: (nsimage?.size.width)!, height: (nsimage?.size.height)!)
-        let image = nsimage?.cgImage(forProposedRect: &area, context: NSGraphicsContext(), hints: [:])
+    #if os(macOS)
+    let nsimage = NSImage(named: path)
+    var area = NSRect(x: 0, y: 0, width: (nsimage?.size.width)!, height: (nsimage?.size.height)!)
+    let image = nsimage?.cgImage(forProposedRect: &area, context: NSGraphicsContext(), hints: [:])
 
-        return image!
-    #endif
-
-    #if canImport(UIKit)
-        let uiimage = UIImage(named: path)
-        return (uiimage?.cgImage)!
+    return image!
+    #elseif os(iOS) || os(tvOS)
+    let uiimage = UIImage(named: path)
+    return (uiimage?.cgImage)!
     #endif
 }
 
-#if canImport(AppKit)
+#if os(macOS)
 func loadCGImage(_ nsimage: NSImage) -> CGImage {
     var area = NSRect(x: 0, y: 0, width: (nsimage.size.width), height: (nsimage.size.height))
     let image = nsimage.cgImage(forProposedRect: &area, context: NSGraphicsContext(), hints: [:])
 
     return image!
 }
+
+func loadCGImage(_ data: Data) -> CGImage {
+    guard let nsimage = NSImage(data: data) else {
+        let error_image = NSImage(systemSymbolName: "x", accessibilityDescription: nil)!
+        return loadCGImage(error_image)
+    }
+    
+    return loadCGImage(nsimage)
+}
+#elseif os(iOS) || os(tvOS)
+func loadCGImage(_ uiimage: UIImage) -> CGImage {
+    return uiimage.cgImage!
+}
+
+func loadCGImage(_ data: Data) -> CGImage {
+    let uiimage = UIImage(data: data)!
+    return loadCGImage(uiimage)
+}
 #endif
 
-func loadCGImageFallback(_ path: String, uploads: [ImageUserUpload], selected: UUID) -> CGImage {
+
+
+func loadCGImageFallback(_ path: String, uploads: [ImageUserUpload], selected: UUID?) -> CGImage {
     if let userUpload = getSelectedImageUserUploaded(uploads: uploads, selected: selected) {
         return userUpload.image
     }

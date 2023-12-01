@@ -34,9 +34,14 @@ struct ResultRenderingView: View {
             Spacer()
             HStack(alignment: .center) {
                 Spacer()
+                #if os(tvOS)
+                ProgressView()
+                    .progressViewStyle(.circular)
+                #else
                 ProgressView()
                     .progressViewStyle(.circular)
                     .controlSize(.regular)
+                #endif
                 Spacer()
             }
             Spacer()
@@ -48,11 +53,19 @@ struct ResultRenderingView: View {
             Spacer()
             HStack(alignment: .center) {
                 Spacer()
-                Text(message)
-                    .font(.system(.title2))
-                    .padding(8)
-                    .background(Color.primary.colorInvert().opacity(0.64))
-                    .cornerRadius(5)
+                #if os(macOS)
+                    Text(message)
+                        .font(.system(.title2))
+                        .padding(8)
+                        .background(Color.primary.colorInvert().opacity(0.64))
+                        .cornerRadius(5)
+                #elseif os(iOS)
+                    Text(message)
+                        .font(.system(.body))
+                        .padding(8)
+                        .background(Color.primary.colorInvert().opacity(0.64))
+                        .cornerRadius(5)
+                #endif
                 Spacer()
             }
             Spacer()
@@ -62,14 +75,16 @@ struct ResultRenderingView: View {
     @ViewBuilder private func renderResults(_ geometry: GeometryProxy) -> some View {
         let data = getSelectedMethod(properties.selectedMethod)
         let sample = getSelectedImageSampleByMethod(
-        properties.selectedMethod, selected: properties.selectedSample)
-
-        if completed == false && data.path != "core-ml-unsupported" {
+            properties.selectedMethod, selected: properties.selectedSample)
+        
+        if data == nil || sample == nil {
+            Color.clear
+        } else if completed == false && data?.path != "core-ml-unsupported" {
             renderLoadingIndicator()
-        } else if completed == true && failedRun == true && data.path != "core-ml-unsupported" {
+        } else if completed == true && failedRun == true && data?.path != "core-ml-unsupported" {
             renderFailMessage("Request Failed")
         } else if completed == true && failedRun == false && observations.count == 0
-            && data.path != "core-ml-unsupported"
+                    && data?.path != "core-ml-unsupported"
         {
             renderFailMessage("No Results")
         } else {
@@ -82,26 +97,26 @@ struct ResultRenderingView: View {
             case is [VNSaliencyImageObservation]:
                 displaySaliency(
                 observations as! [VNSaliencyImageObservation], areaSize: geometry.size,
-                boxes: data.path == "objectness-saliency")
+                boxes: data?.path == "objectness-saliency")
             case is [VNPixelBufferObservation]:
                 displaySegmentation(observations as! [VNPixelBufferObservation])
             case is [VNRecognizedTextObservation]:
                 displayText(observations as! [VNRecognizedTextObservation], areaSize: geometry.size)
             case is [VNTextObservation]:
                 let cgImage = loadCGImageFallback(
-                sample.path, uploads: properties.userUploads, selected: properties.selectedSample)
+                    sample!.path, uploads: properties.userUploads, selected: properties.selectedSample)
                 displayTextRectangles(observations as! [VNTextObservation], cgImage: cgImage)
             case is [VNFaceObservation]:
                 displayFaceObservations(
                 observations as! [VNFaceObservation], areaSize: geometry.size,
-                landmarks: data.path == "face-landmarks")
+                landmarks: data?.path == "face-landmarks")
             case is [VNRectangleObservation]:
                 displayDocumentSegmentation(observations as! [VNRectangleObservation])
             case is [VNFeaturePrintObservation]:
                 displayFeaturePrint(observations as! [VNFeaturePrintObservation])
             case is [VNHorizonObservation]:
                 let cgImage = loadCGImageFallback(
-                sample.path, uploads: properties.userUploads, selected: properties.selectedSample)
+                    sample!.path, uploads: properties.userUploads, selected: properties.selectedSample)
                 displayHorizon(observations as! [VNHorizonObservation], cgImage: cgImage)
             case is [VNHumanObservation]:
                 displayHumanRectangles(observations as! [VNHumanObservation], areaSize: geometry.size)
@@ -115,7 +130,7 @@ struct ResultRenderingView: View {
                 displayLabeledObjects(
                 observations as! [VNRecognizedObjectObservation], areaSize: geometry.size)
             default:
-                if data.path == "core-ml-unsupported" {
+                if data?.path == "core-ml-unsupported" {
                     displayCoreMLOutputs(observations)
                 } else {
                     Text("Unknown")

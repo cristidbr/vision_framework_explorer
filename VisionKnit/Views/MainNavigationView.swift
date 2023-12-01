@@ -10,66 +10,121 @@ struct MainNavigationView: View {
 
     @State private var splitViewConfiguration = NavigationSplitViewVisibility.all
     @State private var isDropTargeted: Bool = false
+    @State private var tabSelection = 1
 
     var body: some View {
-        NavigationSplitView(columnVisibility: $splitViewConfiguration) {
-            SidebarView()
-                .navigationSplitViewColumnWidth(min: 150, ideal: 200, max: 400)
-        } content: {
-            ReferencesView()
-                .navigationSplitViewColumnWidth(min: 150, ideal: 200, max: 400)
-        } detail: {
-            ActionView()
-                .navigationSplitViewColumnWidth(min: 200, ideal: 800, max: 8000)
-                .onDrop(of: [.image], isTargeted: $isDropTargeted) {
-                    providers in
-
-                    let providerCount = providers.count
-
-                    for (i, provider) in providers.enumerated() {
-                        _ = provider.loadDataRepresentation(for: .image) {
-                            data, error in
-
-                            if error == nil, let data {
-                                let nsimage = NSImage(data: data)
-                                let cgimage = loadCGImage(nsimage!)
-                                let upimage = ImageUserUpload(cgimage)
-                                let preselect = (i+1)==providerCount
-
-                                DispatchQueue.main.async {
-                                    properties.userUploads.insert(upimage, at: 0)
-
-                                    if preselect {
-                                        properties.selectedSample = upimage.id
+        #if os(macOS)
+            NavigationSplitView(columnVisibility: $splitViewConfiguration) {
+                SidebarView()
+                    .navigationSplitViewColumnWidth(min: 150, ideal: 200, max: 400)
+            } content: {
+                ReferencesView()
+                    .navigationSplitViewColumnWidth(min: 150, ideal: 200, max: 400)
+            } detail: {
+                ActionView()
+                    .navigationSplitViewColumnWidth(min: 200, ideal: 800, max: 8000)
+                    .onDrop(of: [.image], isTargeted: $isDropTargeted) {
+                        providers in
+                        
+                        let providerCount = providers.count
+                        
+                        for (i, provider) in providers.enumerated() {
+                            _ = provider.loadDataRepresentation(for: .image) {
+                                data, error in
+                                
+                                if error == nil, let data {
+                                    let cgimage = loadCGImage(data)
+                                    let upimage = ImageUserUpload(cgimage)
+                                    let preselect = (i+1)==providerCount
+                                    
+                                    DispatchQueue.main.async {
+                                        properties.userUploads.insert(upimage, at: 0)
+                                        
+                                        if preselect {
+                                            properties.selectedSample = upimage.id
+                                        }
                                     }
                                 }
                             }
                         }
+                        
+                        return true
                     }
-
-                    return true
+                    .overlay {
+                        if isDropTargeted {
+                            DropTargetOverlayView()
+                        }
+                    }
+            }
+        #elseif os(iOS)
+            if UIDevice.current.userInterfaceIdiom == .pad {
+                NavigationSplitView(columnVisibility: $splitViewConfiguration) {
+                    SidebarView()
+                        .navigationSplitViewColumnWidth(min: 200, ideal: 250, max: 400)
+                } content: {
+                    ReferencesView()
+                        .navigationSplitViewColumnWidth(min: 200, ideal: 300, max: 400)
+                } detail: {
+                    ActionView()
+                        .navigationSplitViewColumnWidth(min: 200, ideal: 800, max: 8000)
                 }
-                .overlay {
-                    if isDropTargeted {
-                        Color.black.opacity(0.2)
-                            .overlay {
-                                VStack(alignment: .center) {
-                                    Spacer()
-                                    Image(systemName: "tray.and.arrow.down")
-                                        .resizable()
-                                        .frame(width: 32, height: 32)
-                                        .colorInvert()
-
-                                    Text("Drop Here")
-                                        .font(.system(.title2))
-                                        .colorInvert()
-
-                                    Spacer()
-                                }
+            }
+            else
+            {
+                NavigationSplitView(columnVisibility: $splitViewConfiguration) {
+                    SidebarView()
+                        .navigationTitle("Vision Explorer")
+                }
+                detail: 
+                {
+                    TabView(selection: $tabSelection) {
+                        ActionView()
+                            .tabItem {
+                                Label("Preview", systemImage: "testtube.2")
                             }
+                            .tag(1)
+                        
+                        ReferencesView()
+                            .tabItem {
+                                Label("Details", systemImage: "info.circle")
+                            }
+                            .tag(2)
                     }
+                    .toolbar
+                    {
+                        if tabSelection == 1 && UIDevice.current.userInterfaceIdiom != .pad
+                        {
+                            ToolbarItem(placement: .navigationBarTrailing)
+                            {
+                                AddPhotosView()
+                            }
+                        }
+                    }
+                    .onAppear {
+                        tabSelection = 1
+                    }
+                    .navigationBarTitle("", displayMode: .inline)
                 }
-        }
+                .navigationViewStyle(StackNavigationViewStyle())
+            }
+        #elseif os(tvOS)
+            NavigationSplitView
+            {
+                SidebarView()
+                    .navigationSplitViewColumnWidth(min: 200, ideal: 250, max: 400)
+                    .navigationTitle("Vision Explorer")
+            } detail:
+            {
+                HStack
+                {
+                    ReferencesView()
+                        .navigationSplitViewColumnWidth(min: 200, ideal: 300, max: 400)
+                        
+                    ActionView()
+                        .navigationSplitViewColumnWidth(min: 200, ideal: 800, max: 8000)
+                }
+            }
+        #endif
     }
 }
 

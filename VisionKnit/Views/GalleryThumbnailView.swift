@@ -26,6 +26,19 @@ struct GalleryThumbnailView: View {
         self.selected = selected
         self.onRemove = onRemove
     }
+    
+    @ViewBuilder func renderImage(uploaded: ImageUserUpload) -> Image
+    {
+        #if os(macOS)
+        Image(
+            nsImage: NSImage(
+            cgImage: uploaded.image,
+            size: NSSize(width: uploaded.image.width, height: uploaded.image.height))
+        )
+        #elseif os(iOS) || os(tvOS)
+        Image(uiImage: UIImage(cgImage: uploaded.image))
+        #endif
+    }
 
     var body: some View {
         if sample != nil {
@@ -41,43 +54,39 @@ struct GalleryThumbnailView: View {
                 .background(selected ? Color.accentColor : Color.clear)
                 .cornerRadius(6)
         } else {
-            Image(
-                nsImage: NSImage(
-                cgImage: uploaded!.image,
-                size: NSSize(width: uploaded!.image.width, height: uploaded!.image.height))
-            )
-            .interpolation(.high)
-            .resizable()
-            .scaledToFit()
-            .cornerRadius(4)
-            .padding(2)
-            .background(selected ? Color.accentColor : Color.clear)
-            .cornerRadius(6)
-            .overlay {
-                HStack(alignment: .top) {
-                    Spacer()
-
-                    VStack(alignment: .trailing) {
-                        Button {
-                            if onRemove != nil {
-                                onRemove!(uploaded!.id)
-                            }
-                        } label: {
-                            Image(systemName: "xmark.circle.fill")
-                                .resizable()
-                                .foregroundColor(Color.white)
-                                .frame(width: 16, height: 16)
-                                .shadow(color: Color.black, radius: 2, x: 0, y: 0)
-                                .padding(.all, 6)
-                                .border(.clear, width: 1)
-                                .opacity(0.37)
-                        }
-                        .buttonStyle(.plain)
-
+            renderImage(uploaded: uploaded!)
+                .interpolation(.high)
+                .resizable()
+                .scaledToFit()
+                .cornerRadius(4)
+                .padding(2)
+                .background(selected ? Color.accentColor : Color.clear)
+                .cornerRadius(6)
+                .overlay {
+                    HStack(alignment: .top) {
                         Spacer()
+
+                        VStack(alignment: .trailing) {
+                            Button {
+                                if onRemove != nil {
+                                    onRemove!(uploaded!.id)
+                                }
+                            } label: {
+                                Image(systemName: "xmark.circle.fill")
+                                    .resizable()
+                                    .foregroundColor(Color.white)
+                                    .frame(width: 16, height: 16)
+                                    .shadow(color: Color.black, radius: 2, x: 0, y: 0)
+                                    .padding(.all, 6)
+                                    .border(.clear, width: 1)
+                                    .opacity(0.37)
+                            }
+                            .buttonStyle(.plain)
+
+                            Spacer()
+                        }
                     }
                 }
-            }
         }
     }
 }

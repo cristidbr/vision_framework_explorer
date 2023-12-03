@@ -46,7 +46,7 @@ struct SidebarView: View {
                 NavigationLink(
                     value: api_method.id,
                     label: {
-                        Label("\( api_method.named! )", systemImage: "\( api_method.icon! )")
+                        Label("\( api_method.named! )", systemImage: "\( api_method.icon! )").padding(.all, 8)
                     })
             }
         }

@@ -17,7 +17,7 @@ struct GalleryView: View {
         
         ScrollView(.horizontal, showsIndicators: true) {
             VStack {
-                LazyHGrid(rows: glayout, alignment: .center, spacing: 4) {
+                LazyHGrid(rows: glayout, alignment: .center, spacing: DeviceSizing().gallerySpacing) {
                     let method_path = method?.path ?? ""
                     
                     if method_path != "core-ml-unsupported" {
@@ -63,12 +63,12 @@ struct GalleryView: View {
                             GalleryThumbnailView(sample: item, selected: sample_id == item.id)
                         }
                         .buttonStyle(.plain)
-                        .padding( .all, 0 )
+                        .padding(.all, 0)
                     }
                 }
             }
-            .padding(8)
-            .frame(maxHeight: 120)
+            .padding(DeviceSizing().galleryPadding)
+            .frame(maxHeight: DeviceSizing().galleryHeight)
         }
         .preference(key: ResultsModePreferenceKey.self, value: method?.preview ?? .overlay)
     }

@@ -50,6 +50,7 @@ struct ReferencesView<Controls>: View where Controls: View {
                             
                             Text(render.description)
                                 .font(.body)
+                                .lineLimit(16)
                             
                             #if os(macOS) || os(iOS)
                             Button {

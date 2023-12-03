@@ -115,13 +115,17 @@ struct MainNavigationView: View {
                     .navigationTitle("Vision Explorer")
             } detail:
             {
-                HStack
+                GeometryReader
                 {
-                    ReferencesView()
-                        .navigationSplitViewColumnWidth(min: 200, ideal: 300, max: 400)
-                        
-                    ActionView()
-                        .navigationSplitViewColumnWidth(min: 200, ideal: 800, max: 8000)
+                    geometry in
+                    HStack
+                    {
+                        ActionView()
+                            .navigationSplitViewColumnWidth(min: 200, ideal: 800, max: 8000)
+                        ReferencesView()
+                            .navigationSplitViewColumnWidth(min: 200, ideal: 300, max: 400)
+                            .frame(maxWidth: geometry.size.width * 0.37)
+                    }
                 }
             }
         #endif

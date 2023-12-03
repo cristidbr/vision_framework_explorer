@@ -58,6 +58,7 @@
 		4EE963012A190980004872DC /* DescriptionUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE963002A190980004872DC /* DescriptionUtils.swift */; };
 		4EF10F7B2A2B8F9200430F12 /* FaceUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF10F7A2A2B8F9200430F12 /* FaceUtils.swift */; };
 		4EF10F7D2A2B932B00430F12 /* RecognizedFaceLandmarksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF10F7C2A2B932B00430F12 /* RecognizedFaceLandmarksView.swift */; };
+		4EF3AF312B1CCE8200D4049F /* DeviceSizing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF3AF302B1CCE8200D4049F /* DeviceSizing.swift */; };
 		4EFB4B8B2ADC0E1100F9B6EC /* ResultsModePreferenceKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFB4B8A2ADC0E1100F9B6EC /* ResultsModePreferenceKey.swift */; };
 		4EFB4B8D2ADC0E4900F9B6EC /* ConfidenceProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFB4B8C2ADC0E4900F9B6EC /* ConfidenceProgress.swift */; };
 		4EFB4B8F2ADC0E8A00F9B6EC /* QuadrilateralPoly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFB4B8E2ADC0E8A00F9B6EC /* QuadrilateralPoly.swift */; };
@@ -137,6 +138,7 @@
 		4EE963002A190980004872DC /* DescriptionUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionUtils.swift; sourceTree = "<group>"; };
 		4EF10F7A2A2B8F9200430F12 /* FaceUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceUtils.swift; sourceTree = "<group>"; };
 		4EF10F7C2A2B932B00430F12 /* RecognizedFaceLandmarksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecognizedFaceLandmarksView.swift; sourceTree = "<group>"; };
+		4EF3AF302B1CCE8200D4049F /* DeviceSizing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceSizing.swift; sourceTree = "<group>"; };
 		4EFB4B8A2ADC0E1100F9B6EC /* ResultsModePreferenceKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsModePreferenceKey.swift; sourceTree = "<group>"; };
 		4EFB4B8C2ADC0E4900F9B6EC /* ConfidenceProgress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfidenceProgress.swift; sourceTree = "<group>"; };
 		4EFB4B8E2ADC0E8A00F9B6EC /* QuadrilateralPoly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuadrilateralPoly.swift; sourceTree = "<group>"; };
@@ -300,6 +302,7 @@
 			children = (
 				4E26E7D72A1BEFED00839350 /* VisionPreviewProperties.swift */,
 				4EE963002A190980004872DC /* DescriptionUtils.swift */,
+				4EF3AF302B1CCE8200D4049F /* DeviceSizing.swift */,
 				4E59EE462A1A648C00A5D9BF /* URLUtils.swift */,
 				4E59EE482A1A6C9900A5D9BF /* VisionOperationUtils.swift */,
 				4E59EE4C2A1A856D00A5D9BF /* ObservationUtils.swift */,
@@ -443,6 +446,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4EF3AF312B1CCE8200D4049F /* DeviceSizing.swift in Sources */,
 				4EE7D8BF2A28D4CD00BBD769 /* RecognizedBodyPoseView.swift in Sources */,
 				4EFB4B8F2ADC0E8A00F9B6EC /* QuadrilateralPoly.swift in Sources */,
 				4E59EE4D2A1A856D00A5D9BF /* ObservationUtils.swift in Sources */,
@@ -646,6 +650,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"ASSETCATALOG_COMPILER_APPICON_NAME[sdk=appletvos*]" = AppIconTV;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = VisionKnit/VisionKnit.entitlements;
@@ -678,12 +683,12 @@
 				PRODUCT_BUNDLE_IDENTIFIER = ai.quarters.visionknit;
 				PRODUCT_NAME = "Vision Explorer";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = "appletvos appletvsimulator iphoneos iphonesimulator macosx";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = "1,2,3";
 				TVOS_DEPLOYMENT_TARGET = 16.0;
 			};
 			name = Debug;
@@ -692,6 +697,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"ASSETCATALOG_COMPILER_APPICON_NAME[sdk=appletvos*]" = AppIconTV;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = VisionKnit/VisionKnit.entitlements;
@@ -724,12 +730,12 @@
 				PRODUCT_BUNDLE_IDENTIFIER = ai.quarters.visionknit;
 				PRODUCT_NAME = "Vision Explorer";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = "appletvos appletvsimulator iphoneos iphonesimulator macosx";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = "1,2,3";
 				TVOS_DEPLOYMENT_TARGET = 16.0;
 			};
 			name = Release;

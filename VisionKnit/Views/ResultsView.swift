@@ -82,8 +82,9 @@ struct ResultsView<Media, Results>: View where Media: View, Results: View {
                 }
         }
     }
-
-    @ViewBuilder private func makeOverlay() -> some View {
+    
+    @ViewBuilder private func makeOverlayBase() -> some View
+    {
         makeMedia()
             .overlay {
                 makeResults()
@@ -92,6 +93,13 @@ struct ResultsView<Media, Results>: View where Media: View, Results: View {
             .padding(.all, 8)
             .frame(maxHeight: .greatestFiniteMagnitude)
             .scaleEffect(oscale, anchor: .center)
+    }
+    
+    @ViewBuilder private func makeOverlay() -> some View {
+        #if os(tvOS)
+        makeOverlayBase()
+        #else
+        makeOverlayBase()
             .gesture(
                 MagnificationGesture()
                     .updating($oscale) {
@@ -99,6 +107,7 @@ struct ResultsView<Media, Results>: View where Media: View, Results: View {
                         scale = min( max( newValue, 1.0 ), 3.0 )
                     }
             )
+        #endif
     }
 
     @ViewBuilder private func makeSplit() -> some View {
@@ -111,7 +120,11 @@ struct ResultsView<Media, Results>: View where Media: View, Results: View {
                     .frame(maxWidth: geometry.size.width / 2)
 
                 Divider()
-
+                
+                #if os(tvOS)
+                makeResults()
+                    .frame(maxWidth: geometry.size.width / 2)
+                #else
                 makeResults()
                     .frame(maxWidth: geometry.size.width / 2)
                     .gesture(
@@ -120,6 +133,7 @@ struct ResultsView<Media, Results>: View where Media: View, Results: View {
                             scale = min( max( newValue, 1.0 ), 3.0 )
                         }
                     )
+                #endif
             }
         }
     }

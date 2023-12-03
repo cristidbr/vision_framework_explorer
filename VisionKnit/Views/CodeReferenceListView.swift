@@ -19,14 +19,11 @@ struct CodeReferenceListView: View {
                     Button {
                         openURLInBrowser(reference.url)
                     } label: {
-                        HStack {
+                        HStack(spacing: 8) {
                             if reference.ranking != nil {
                             Image(systemName: "star.fill")
-                                .resizable()
-                                .aspectRatio(contentMode: .fit)
-                                .scaledToFit()
-                                .frame(height: 12)
-
+                                .font(.callout)
+                                
                             Text(String(reference.ranking!))
                                 .font(.footnote)
                             }
@@ -34,6 +31,7 @@ struct CodeReferenceListView: View {
                             Text(reference.url.replacingOccurrences(of: "https://", with: ""))
                                 .lineLimit(1)
                                 .truncationMode(.tail)
+                                .padding(.leading, DeviceSizing().codeReferenceStarPadding)
                             
                             Spacer()
                         }

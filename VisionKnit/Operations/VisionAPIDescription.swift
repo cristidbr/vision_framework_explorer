@@ -5,6 +5,7 @@
 
 import Foundation
 
+
 var VisionAPIDescription: [VisionMethodDescription] =
 [
     VisionMethodDescription(

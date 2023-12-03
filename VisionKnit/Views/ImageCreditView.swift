@@ -11,8 +11,7 @@ struct ImageCreditView: View {
     var body: some View {
         HStack(spacing: 2) {
             Image(systemName: "info.circle")
-                .resizable()
-                .frame(width: 10, height: 10)
+                .font(.footnote)
                 .opacity(0.64)
 
             Text("Photo by")

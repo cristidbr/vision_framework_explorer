@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="https://raw.githubusercontent.com/cristidbr/vision_framework_explorer/main/Resources/app_icon.png">
+    <img src="https://raw.githubusercontent.com/cristidbr/vision_framework_explorer/refs/heads/main/Resources/app_icon.png">
 </p>
 
 <h1 align="center">Vision Framework Explorer</h1>

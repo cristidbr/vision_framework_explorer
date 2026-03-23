@@ -659,7 +659,7 @@
 				CURRENT_PROJECT_VERSION = 3;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"VisionKnit/Preview Content\"";
-				DEVELOPMENT_TEAM = AFZG9MN5TJ;
+				DEVELOPMENT_TEAM = T2R7TS4CUP;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -680,7 +680,7 @@
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.0.2;
-				PRODUCT_BUNDLE_IDENTIFIER = ai.quarters.visionknit;
+				PRODUCT_BUNDLE_IDENTIFIER = ai.crsdbr.visionframeworkexplorer;
 				PRODUCT_NAME = "Vision Explorer";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "appletvos appletvsimulator iphoneos iphonesimulator macosx";
@@ -706,7 +706,7 @@
 				CURRENT_PROJECT_VERSION = 3;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"VisionKnit/Preview Content\"";
-				DEVELOPMENT_TEAM = AFZG9MN5TJ;
+				DEVELOPMENT_TEAM = T2R7TS4CUP;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -727,7 +727,7 @@
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.0.2;
-				PRODUCT_BUNDLE_IDENTIFIER = ai.quarters.visionknit;
+				PRODUCT_BUNDLE_IDENTIFIER = ai.crsdbr.visionframeworkexplorer;
 				PRODUCT_NAME = "Vision Explorer";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "appletvos appletvsimulator iphoneos iphonesimulator macosx";

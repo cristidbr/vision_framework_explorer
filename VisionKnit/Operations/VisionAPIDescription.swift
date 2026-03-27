@@ -17,9 +17,9 @@ var VisionAPIDescription: [VisionMethodDescription] =
             "Generate class probabilities for a given image. Returns an array of observations containing confidence levels for each supported class.",
         preview: .trailing,
         references: [
-            CodeReference(url: "https://github.com/luoxuhai/react-native-classify-image", ranking: 28),
+            CodeReference(url: "https://github.com/luoxuhai/react-native-classify-image", ranking: 29),
             CodeReference(url: "https://github.com/tmsm1999/Lepilens-iOS", ranking: 5),
-            CodeReference(url: "https://github.com/nikitaame/DeepLook", ranking: 7),
+            CodeReference(url: "https://github.com/LA-Labs/DeepLook", ranking: 40),
         ],
         samples: [
             ImageSampleReference(
@@ -51,8 +51,8 @@ var VisionAPIDescription: [VisionMethodDescription] =
         references: [
             CodeReference(url: "https://github.com/RxSwiftCommunity/RxVision", ranking: 13),
             CodeReference(url: "https://github.com/DavidPhillipOster/QRDecode", ranking: 2),
-            CodeReference(url: "https://github.com/WICG/shape-detection-api", ranking: 292),
-            CodeReference(url: "https://github.com/flutter-package/flutter_scan", ranking: 75),
+            CodeReference(url: "https://github.com/WICG/shape-detection-api", ranking: 315),
+            CodeReference(url: "https://github.com/flutter-package/flutter_scan", ranking: 81),
         ],
         samples: [
             ImageSampleReference(
@@ -82,11 +82,11 @@ var VisionAPIDescription: [VisionMethodDescription] =
             "Find and recognize text in an image. Returns an array of results containing bounding boxes, each one containing multiple recognized text candidates. A recognized text candidate contains confidence level and recognized text string. ",
         preview: .split,
         references: [
-            CodeReference(url: "https://github.com/aheze/OpenFind", ranking: 897),
-            CodeReference(url: "https://github.com/appintheair/MRZScanner", ranking: 54),
-            CodeReference(url: "https://github.com/RhetTbull/textinator", ranking: 120),
-            CodeReference(url: "https://github.com/peterc/videocr/tree/main", ranking: 38),
-            CodeReference(url: "https://github.com/khalid-asad/card-reader-ios", ranking: 117),
+            CodeReference(url: "https://github.com/aheze/OpenFind", ranking: 1070),
+            CodeReference(url: "https://github.com/appintheair/MRZScanner", ranking: 68),
+            CodeReference(url: "https://github.com/RhetTbull/textinator", ranking: 199),
+            CodeReference(url: "https://github.com/peterc/videocr/tree/main", ranking: 43),
+            CodeReference(url: "https://github.com/khalid-asad/card-reader-ios", ranking: 129),
         ],
         samples: [
             ImageSampleReference(
@@ -124,7 +124,7 @@ var VisionAPIDescription: [VisionMethodDescription] =
         preview: .split,
         references: [
             CodeReference(url: "https://github.com/wing3501/MyFetchApp", ranking: 1),
-            CodeReference(url: "https://github.com/stuffmc/ImageOCR", ranking: 3),
+            CodeReference(url: "https://github.com/stuffmc/ImageOCR", ranking: 4),
         ],
         samples: [
             ImageSampleReference(
@@ -154,9 +154,9 @@ var VisionAPIDescription: [VisionMethodDescription] =
             "Produces a matte image for a person it finds in the input image. Returns an image mask that can be used for background removal.",
         preview: .split,
         references: [
-            CodeReference(url: "https://github.com/fabio914/PersonSegmentationMacOS", ranking: 46),
-            CodeReference(url: "https://github.com/john-rocky/SemanticImage", ranking: 88),
-            CodeReference(url: "https://github.com/gxalpha/obs-mac-backgroundremoval", ranking: 25),
+            CodeReference(url: "https://github.com/fabio914/PersonSegmentationMacOS", ranking: 51),
+            CodeReference(url: "https://github.com/john-rocky/SemanticImage", ranking: 155),
+            CodeReference(url: "https://github.com/gxalpha/obs-mac-backgroundremoval", ranking: 112),
         ],
         samples: [
             ImageSampleReference(
@@ -194,10 +194,10 @@ var VisionAPIDescription: [VisionMethodDescription] =
             "Detect regions of visible text in an image. Can return rectangular bounding boxes for each character inside the detection. Does not perform optical character recognition (OCR). ",
         preview: .trailing,
         references: [
-            CodeReference(url: "https://github.com/gali8/WhichFont", ranking: 82),
+            CodeReference(url: "https://github.com/gali8/WhichFont", ranking: 84),
             CodeReference(url: "https://github.com/victor-pavlychko/OCRWorkshop", ranking: 5),
-            CodeReference(url: "https://github.com/zsajjad/react-native-text-detector", ranking: 217),
-            CodeReference(url: "https://github.com/bigsen/Vision_Demo", ranking: 87),
+            CodeReference(url: "https://github.com/zsajjad/react-native-text-detector", ranking: 221),
+            CodeReference(url: "https://github.com/bigsen/Vision_Demo", ranking: 91),
         ],
         samples: [
             ImageSampleReference(
@@ -243,11 +243,11 @@ var VisionAPIDescription: [VisionMethodDescription] =
         description: "Finds faces within an image. Returns an array of bounding boxes. ",
         preview: .overlay,
         references: [
-            CodeReference(url: "https://github.com/SwiftBrain/HelloVision", ranking: 95),
-            CodeReference(url: "https://github.com/dimroc/count", ranking: 52),
-            CodeReference(url: "https://github.com/mehmetkoca/Recogcis", ranking: 30),
+            CodeReference(url: "https://github.com/SwiftBrain/HelloVision", ranking: 96),
+            CodeReference(url: "https://github.com/dimroc/count", ranking: 54),
+            CodeReference(url: "https://github.com/mehmetkoca/Recogcis", ranking: 33),
             CodeReference(url: "https://github.com/xzzz9097/Machine", ranking: 4),
-            CodeReference(url: "https://github.com/FluidGroup/Brightroom", ranking: 3016),
+            CodeReference(url: "https://github.com/FluidGroup/Brightroom", ranking: 3624),
         ],
         samples: [
             ImageSampleReference(
@@ -282,9 +282,9 @@ var VisionAPIDescription: [VisionMethodDescription] =
             "Produces a floating-point number that represents the capture quality of a face in a photo. Returns an array of face observations.",
         preview: .overlay,
         references: [
-            CodeReference(url: "https://github.com/LA-Labs/DeepLook", ranking: 27),
-            CodeReference(url: "https://github.com/alexdong/autocrop", ranking: 1),
-            CodeReference(url: "https://github.com/ObservantLabs/VisionUtils", ranking: 3),
+            CodeReference(url: "https://github.com/LA-Labs/DeepLook", ranking: 40),
+            CodeReference(url: "https://github.com/alexdong/autocrop", ranking: 2),
+            CodeReference(url: "https://github.com/ObservantLabs/VisionUtils", ranking: 4),
         ],
         samples: [
             ImageSampleReference(
@@ -319,12 +319,12 @@ var VisionAPIDescription: [VisionMethodDescription] =
             "Finds facial features like eyes and mouth in an image. Returns an array of face observations, each one containing the detected landmarks and features. ",
         preview: .overlay,
         references: [
-            CodeReference(url: "https://github.com/jfiguinha/Regards", ranking: 25),
-            CodeReference(url: "https://github.com/xiaohk/FaceData", ranking: 71),
+            CodeReference(url: "https://github.com/jfiguinha/Regards", ranking: 31),
+            CodeReference(url: "https://github.com/xiaohk/FaceData", ranking: 82),
             CodeReference(url: "https://github.com/kravik/facevision", ranking: 47),
-            CodeReference(url: "https://github.com/DroidsOnRoids/VisionFaceDetection", ranking: 259),
-            CodeReference(url: "https://github.com/persello/norminal", ranking: 11),
-            CodeReference(url: "https://github.com/MissEmlizB/Googly-Eyes", ranking: 4),
+            CodeReference(url: "https://github.com/DroidsOnRoids/VisionFaceDetection", ranking: 267),
+            CodeReference(url: "https://github.com/persello/norminal", ranking: 10),
+            CodeReference(url: "https://github.com/MissEmlizB/Googly-Eyes", ranking: 5),
         ],
         samples: [
             ImageSampleReference(
@@ -361,10 +361,10 @@ var VisionAPIDescription: [VisionMethodDescription] =
             "Generate feature prints of the given image. Returns an Float vector of 2048 values that encode the image in separable space. Differences between images (or similarity) can be evaluated using the cosine distance applied between their encodings.",
         preview: .trailing,
         references: [
-            CodeReference(url: "https://github.com/anupamchugh/iowncode", ranking: 825),
-            CodeReference(url: "https://github.com/popCain/DetectionAndTracking_iOS", ranking: 5),
-            CodeReference(url: "https://github.com/oguzveozturk/ImageSimilarity", ranking: 3),
-            CodeReference(url: "https://github.com/matthewspear/StopTouchingYourFace", ranking: 9),
+            CodeReference(url: "https://github.com/anupamchugh/iowncode", ranking: 909),
+            CodeReference(url: "https://github.com/popCain/DetectionAndTracking_iOS", ranking: 8),
+            CodeReference(url: "https://github.com/oguzveozturk/ImageSimilarity", ranking: 4),
+            CodeReference(url: "https://github.com/matthewspear/StopTouchingYourFace", ranking: 10),
             CodeReference(url: "https://github.com/hollance/sefr-swift", ranking: 21),
         ],
         samples: [
@@ -401,9 +401,9 @@ var VisionAPIDescription: [VisionMethodDescription] =
             "Detect the contours of the edges of an image. Returns an array of contours observations, each containing an unique set of several, non-enclosing contours.",
         preview: .split,
         references: [
-            CodeReference(url: "https://github.com/juanj/Speech-Bubbles-Swift", ranking: 10),
+            CodeReference(url: "https://github.com/juanj/Speech-Bubbles-Swift", ranking: 17),
             CodeReference(url: "https://github.com/AndreasInk/HackBack", ranking: 1),
-            CodeReference(url: "https://github.com/beforeold/iOSDailyDemo", ranking: 4),
+            CodeReference(url: "https://github.com/beforeold/iOSDailyDemo", ranking: 7),
         ],
         samples: [
             ImageSampleReference(
@@ -440,11 +440,10 @@ var VisionAPIDescription: [VisionMethodDescription] =
         "Finds projected rectangular regions. Returns an array of observed rectangles, each containing the corner vertices and scores. ",
     preview: .overlay,
     references: [
-        CodeReference(url: "https://github.com/WeTransfer/WeScan", ranking: 2696),
-        CodeReference(url: "https://github.com/wevat/rectangle-scanner", ranking: 9),
-        CodeReference(url: "https://github.com/MATHEMA-GmbH/privacyblur", ranking: 116),
+        CodeReference(url: "https://github.com/WeTransfer/WeScan", ranking: 7),
+        CodeReference(url: "https://github.com/wevat/rectangle-scanner", ranking: 11),
         CodeReference(url: "https://github.com/romy-aikon/Vision-ML-Example", ranking: 4),
-        CodeReference(url: "https://github.com/john-rocky/SemanticImage", ranking: 88),
+        CodeReference(url: "https://github.com/john-rocky/SemanticImage", ranking: 155),
     ],
     samples: [
         ImageSampleReference(
@@ -512,7 +511,7 @@ var VisionAPIDescription: [VisionMethodDescription] =
         "Finds rectangular regions that contain people. Returns an array of human observations as bounding boxes, each one containing a flag for upper body observations. ",
     preview: .overlay,
     references: [
-        CodeReference(url: "https://github.com/Uhucream/Simple-ID-Photo", ranking: 1)
+        CodeReference(url: "https://github.com/Uhucream/Simple-ID-Photo", ranking: 7)
     ],
     samples: [
         ImageSampleReference(
@@ -545,9 +544,9 @@ var VisionAPIDescription: [VisionMethodDescription] =
         "Detects human body poses. Returns and array of results, each containing the observed points and joint names.",
     preview: .overlay,
     references: [
-        CodeReference(url: "https://github.com/al03/VisionPose", ranking: 14),
-        CodeReference(url: "https://github.com/mayankgandhi/YogaVision", ranking: 8),
-        CodeReference(url: "https://github.com/philippgehrke/SquatCounter", ranking: 18),
+        CodeReference(url: "https://github.com/al03/VisionPose", ranking: 19),
+        CodeReference(url: "https://github.com/mayankgandhi/YogaVision", ranking: 13),
+        CodeReference(url: "https://github.com/philippgehrke/SquatCounter", ranking: 37),
     ],
     samples: [
         ImageSampleReference(
@@ -585,9 +584,9 @@ var VisionAPIDescription: [VisionMethodDescription] =
             "Detects human hand poses. Returns an array and array of results, each containing the observed points and joint names.",
         preview: .overlay,
         references: [
-            CodeReference(url: "https://github.com/anupamchugh/iOS14VisionHandPose", ranking: 22),
-            CodeReference(url: "https://github.com/john-rocky/RealityKit-Sampler", ranking: 112),
-            CodeReference(url: "https://github.com/Reality-Dev/BodyTracking", ranking: 47),
+            CodeReference(url: "https://github.com/anupamchugh/iOS14VisionHandPose", ranking: 29),
+            CodeReference(url: "https://github.com/john-rocky/RealityKit-Sampler", ranking: 176),
+            CodeReference(url: "https://github.com/Reality-Dev/BodyTracking", ranking: 87),
         ],
         samples: [
             ImageSampleReference(
@@ -626,8 +625,8 @@ var VisionAPIDescription: [VisionMethodDescription] =
             "Recognizes animals in an image. Returns an array of detected bounding boxes and classification scores for cat and dog.",
         preview: .overlay,
         references: [
-            CodeReference(url: "https://github.com/john-rocky/AutoCatDogCam", ranking: 3),
-            CodeReference(url: "https://github.com/ktustanowski/visiondemo", ranking: 19),
+            CodeReference(url: "https://github.com/john-rocky/AutoCatDogCam", ranking: 5),
+            CodeReference(url: "https://github.com/ktustanowski/visiondemo", ranking: 31),
         ],
         samples: [
             ImageSampleReference(
@@ -660,9 +659,9 @@ var VisionAPIDescription: [VisionMethodDescription] =
             "Produces a grayscale heat map that identifies the parts of an image most likely to draw attention. Its dimensions are 64 x 64 when fetched in real time (video), or 68 x 68 when performed on still images.",
         preview: .split,
         references: [
-            CodeReference(url: "https://github.com/ktustanowski/visiondemo", ranking: 19),
+            CodeReference(url: "https://github.com/ktustanowski/visiondemo", ranking: 31),
             CodeReference(url: "https://github.com/sm1030/SaliencyPhotoBrowser", ranking: 1),
-            CodeReference(url: "https://github.com/heestand-xyz/PixelKit", ranking: 838),
+            CodeReference(url: "https://github.com/heestand-xyz/PixelKit", ranking: 895),
         ],
         samples: [
             ImageSampleReference(
@@ -698,9 +697,9 @@ var VisionAPIDescription: [VisionMethodDescription] =
             "Generate grayscale heat maps that identify the parts of an image most likely to represent objects. Returns at most 3 heat maps. Dimensions of the heat maps are 64 x 64 when fetched in real time (video), or 68 x 68 when performed on still images.",
         preview: .split,
         references: [
-            CodeReference(url: "https://github.com/Piwigo/Piwigo-Mobile", ranking: 89),
+            CodeReference(url: "https://github.com/Piwigo/Piwigo-Mobile", ranking: 114),
             CodeReference(
-            url: "https://github.com/AIwithSwift/PracticalAIwithSwift1stEd-Code", ranking: 78),
+            url: "https://github.com/AIwithSwift/PracticalAIwithSwift1stEd-Code", ranking: 86),
         ],
         samples: [
             ImageSampleReference(
@@ -736,14 +735,14 @@ var VisionAPIDescription: [VisionMethodDescription] =
             "Use a Core ML model to process images. Inspect any model and its outputs by opening it in XCode.",
         preview: .overlay,
         references: [
-            CodeReference(url: "https://github.com/godly-devotion/MochiDiffusion", ranking: 6500),
-            CodeReference(url: "https://github.com/omarmhaimdat/face_ai", ranking: 105),
-            CodeReference(url: "https://github.com/jsharp83/MetalCamera", ranking: 142),
+            CodeReference(url: "https://github.com/godly-devotion/MochiDiffusion", ranking: 7900),
+            CodeReference(url: "https://github.com/omarmhaimdat/face_ai", ranking: 130),
+            CodeReference(url: "https://github.com/jsharp83/MetalCamera", ranking: 173),
             CodeReference(
-                url: "https://github.com/tucan9389/SemanticSegmentation-CoreML", ranking: 286),
+                url: "https://github.com/tucan9389/SemanticSegmentation-CoreML", ranking: 341),
             CodeReference(
-                url: "https://github.com/NovatecConsulting/FaceRecognition-in-ARKit", ranking: 823),
-            CodeReference(url: "https://github.com/npna/CoreMLPlayer", ranking: 118),
+                url: "https://github.com/NovatecConsulting/FaceRecognition-in-ARKit", ranking: 839),
+            CodeReference(url: "https://github.com/npna/CoreMLPlayer", ranking: 167),
         ],
         samples: [
             ImageSampleReference(

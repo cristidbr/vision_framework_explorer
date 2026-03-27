@@ -22,10 +22,13 @@ detection, text detection, barcode recognition, image registration, and
 general feature tracking. Try it on your own images with the drag and drop 
 functionality. Quickly access tge AOU documentation from the side panel.
 
+---
+
 ## Features
 
-Supported Methods — 19 different API methods for image classification, barcode recognition, text recognition and many more
-Bring your own images — Quickly evaluate the Vision Framework outputs on different images
-Customizable — Accent color and dark mode adjusts to your system preferences 
-Featured repositiories - See how Vision Framework requests are used in other apps
-s
+Here are the main features:
+
+- **Supported Methods** — 19 different API methods for image classification, barcode recognition, text recognition and many more
+- **Bring your own images** — Quickly evaluate the Vision Framework outputs on different images
+- **Customizable** — Accent color and dark mode adjusts to your system preferences 
+- **Featured repositories** - See how Vision Framework requests are used in other apps

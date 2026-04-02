@@ -28,7 +28,7 @@ functionality. Quickly access tge AOU documentation from the side panel.
 
 Here are the main features:
 
-- **Supported Methods** — 19 different API methods for image classification, barcode recognition, text recognition and many more
+- **Supported requests** — 19 different API methods for image classification, barcode recognition, text recognition and many more
 - **Bring your own images** — Quickly evaluate the Vision Framework outputs on different images
 - **Customizable** — Accent color and dark mode adjusts to your system preferences 
 - **Featured repositories** - See how Vision Framework requests are used in other apps

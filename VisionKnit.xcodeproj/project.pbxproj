@@ -108,9 +108,9 @@
 		4ED936EC2A14106200093693 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4ED936EE2A14106200093693 /* VisionKnit.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = VisionKnit.entitlements; sourceTree = "<group>"; };
 		4ED936F02A14106200093693 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		4ED936F62A14106200093693 /* VisionFrameworkExplorerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VisionFrameworkExplorerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4ED936F62A14106200093693 /* VisionFrameworkExploreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VisionFrameworkExploreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4ED936FA2A14106200093693 /* VisionKnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionKnitTests.swift; sourceTree = "<group>"; };
-		4ED937002A14106300093693 /* VisionFrameworkExplorerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VisionFrameworkExplorerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4ED937002A14106300093693 /* VisionFrameworkExploreUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VisionFrameworkExploreUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4ED937042A14106300093693 /* VisionKnitUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionKnitUITests.swift; sourceTree = "<group>"; };
 		4ED937062A14106300093693 /* VisionKnitUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionKnitUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		4ED937142A14119600093693 /* MainNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigationView.swift; sourceTree = "<group>"; };
@@ -221,8 +221,8 @@
 			isa = PBXGroup;
 			children = (
 				4ED936E52A14106100093693 /* Vision Explorer.app */,
-				4ED936F62A14106200093693 /* VisionFrameworkExplorerTests.xctest */,
-				4ED937002A14106300093693 /* VisionFrameworkExplorerUITests.xctest */,
+				4ED936F62A14106200093693 /* VisionFrameworkExploreTests.xctest */,
+				4ED937002A14106300093693 /* VisionFrameworkExploreUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -319,9 +319,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		4ED936E42A14106100093693 /* VisionFrameworkExplorer */ = {
+		4ED936E42A14106100093693 /* VisionFrameworkExplore */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4ED9370A2A14106300093693 /* Build configuration list for PBXNativeTarget "VisionFrameworkExplorer" */;
+			buildConfigurationList = 4ED9370A2A14106300093693 /* Build configuration list for PBXNativeTarget "VisionFrameworkExplore" */;
 			buildPhases = (
 				4ED936E12A14106100093693 /* Sources */,
 				4ED936E22A14106100093693 /* Frameworks */,
@@ -331,14 +331,14 @@
 			);
 			dependencies = (
 			);
-			name = VisionFrameworkExplorer;
+			name = VisionFrameworkExplore;
 			productName = VisionKnit;
 			productReference = 4ED936E52A14106100093693 /* Vision Explorer.app */;
 			productType = "com.apple.product-type.application";
 		};
-		4ED936F52A14106200093693 /* VisionFrameworkExplorerTests */ = {
+		4ED936F52A14106200093693 /* VisionFrameworkExploreTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4ED9370D2A14106300093693 /* Build configuration list for PBXNativeTarget "VisionFrameworkExplorerTests" */;
+			buildConfigurationList = 4ED9370D2A14106300093693 /* Build configuration list for PBXNativeTarget "VisionFrameworkExploreTests" */;
 			buildPhases = (
 				4ED936F22A14106200093693 /* Sources */,
 				4ED936F32A14106200093693 /* Frameworks */,
@@ -349,14 +349,14 @@
 			dependencies = (
 				4ED936F82A14106200093693 /* PBXTargetDependency */,
 			);
-			name = VisionFrameworkExplorerTests;
+			name = VisionFrameworkExploreTests;
 			productName = VisionKnitTests;
-			productReference = 4ED936F62A14106200093693 /* VisionFrameworkExplorerTests.xctest */;
+			productReference = 4ED936F62A14106200093693 /* VisionFrameworkExploreTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		4ED936FF2A14106300093693 /* VisionFrameworkExplorerUITests */ = {
+		4ED936FF2A14106300093693 /* VisionFrameworkExploreUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4ED937102A14106300093693 /* Build configuration list for PBXNativeTarget "VisionFrameworkExplorerUITests" */;
+			buildConfigurationList = 4ED937102A14106300093693 /* Build configuration list for PBXNativeTarget "VisionFrameworkExploreUITests" */;
 			buildPhases = (
 				4ED936FC2A14106300093693 /* Sources */,
 				4ED936FD2A14106300093693 /* Frameworks */,
@@ -367,9 +367,9 @@
 			dependencies = (
 				4ED937022A14106300093693 /* PBXTargetDependency */,
 			);
-			name = VisionFrameworkExplorerUITests;
+			name = VisionFrameworkExploreUITests;
 			productName = VisionKnitUITests;
-			productReference = 4ED937002A14106300093693 /* VisionFrameworkExplorerUITests.xctest */;
+			productReference = 4ED937002A14106300093693 /* VisionFrameworkExploreUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -408,9 +408,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				4ED936E42A14106100093693 /* VisionFrameworkExplorer */,
-				4ED936F52A14106200093693 /* VisionFrameworkExplorerTests */,
-				4ED936FF2A14106300093693 /* VisionFrameworkExplorerUITests */,
+				4ED936E42A14106100093693 /* VisionFrameworkExplore */,
+				4ED936F52A14106200093693 /* VisionFrameworkExploreTests */,
+				4ED936FF2A14106300093693 /* VisionFrameworkExploreUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -522,12 +522,12 @@
 /* Begin PBXTargetDependency section */
 		4ED936F82A14106200093693 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 4ED936E42A14106100093693 /* VisionFrameworkExplorer */;
+			target = 4ED936E42A14106100093693 /* VisionFrameworkExplore */;
 			targetProxy = 4ED936F72A14106200093693 /* PBXContainerItemProxy */;
 		};
 		4ED937022A14106300093693 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 4ED936E42A14106100093693 /* VisionFrameworkExplorer */;
+			target = 4ED936E42A14106100093693 /* VisionFrameworkExplore */;
 			targetProxy = 4ED937012A14106300093693 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -656,14 +656,14 @@
 				CODE_SIGN_ENTITLEMENTS = VisionKnit/VisionKnit.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 2;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"VisionKnit/Preview Content\"";
 				DEVELOPMENT_TEAM = T2R7TS4CUP;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = "Vision Framework Explorer";
+				INFOPLIST_KEY_CFBundleDisplayName = "Vision Framework Explore";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
@@ -679,8 +679,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
-				MARKETING_VERSION = 1.0.2;
-				PRODUCT_BUNDLE_IDENTIFIER = ai.crsdbr.visionframeworkexplorer;
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ai.crsdbr.visionframeworkexplore;
 				PRODUCT_NAME = "Vision Explorer";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "appletvos appletvsimulator iphoneos iphonesimulator macosx";
@@ -701,16 +701,17 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = VisionKnit/VisionKnit.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 2;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"VisionKnit/Preview Content\"";
 				DEVELOPMENT_TEAM = T2R7TS4CUP;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = "Vision Framework Explorer";
+				INFOPLIST_KEY_CFBundleDisplayName = "Vision Framework Explore";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
@@ -726,9 +727,10 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
-				MARKETING_VERSION = 1.0.2;
-				PRODUCT_BUNDLE_IDENTIFIER = ai.crsdbr.visionframeworkexplorer;
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ai.crsdbr.visionframeworkexplore;
 				PRODUCT_NAME = "Vision Explorer";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "appletvos appletvsimulator iphoneos iphonesimulator macosx";
 				SUPPORTS_MACCATALYST = NO;
@@ -777,7 +779,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				MACOSX_DEPLOYMENT_TARGET = 13.1;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = ai.crsdbr.visionframeworkexplorer.VisionFrameworkExplorerTests;
+				PRODUCT_BUNDLE_IDENTIFIER = ai.crsdbr.visionframeworkexplore.VisionFrameworkExplorerTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
@@ -823,7 +825,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				MACOSX_DEPLOYMENT_TARGET = 13.1;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = ai.crsdbr.visionframeworkexplorer.VisionFrameworkExplorerUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = ai.crsdbr.visionframeworkexplore.VisionFrameworkExplorerUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
@@ -846,7 +848,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4ED9370A2A14106300093693 /* Build configuration list for PBXNativeTarget "VisionFrameworkExplorer" */ = {
+		4ED9370A2A14106300093693 /* Build configuration list for PBXNativeTarget "VisionFrameworkExplore" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4ED9370B2A14106300093693 /* Debug */,
@@ -855,7 +857,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4ED9370D2A14106300093693 /* Build configuration list for PBXNativeTarget "VisionFrameworkExplorerTests" */ = {
+		4ED9370D2A14106300093693 /* Build configuration list for PBXNativeTarget "VisionFrameworkExploreTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4ED9370E2A14106300093693 /* Debug */,
@@ -864,7 +866,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4ED937102A14106300093693 /* Build configuration list for PBXNativeTarget "VisionFrameworkExplorerUITests" */ = {
+		4ED937102A14106300093693 /* Build configuration list for PBXNativeTarget "VisionFrameworkExploreUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4ED937112A14106300093693 /* Debug */,
